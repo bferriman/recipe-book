@@ -9,7 +9,7 @@ const initialState = {
 
 const mealsReducer = (state = initialState, action) => {
   switch (action.type) {
-    
+
     case TOGGLE_FAVORITE:
       //determine whether the toggled meal is in the favoriteMeals array
       const existingIndex = state.favoriteMeals.findIndex(meal => meal.id === action.mealId);
@@ -23,7 +23,7 @@ const mealsReducer = (state = initialState, action) => {
       }
 
     case SET_FILTERS:
-      const appliedFilters = actions.filters;
+      const appliedFilters = action.filters;
       const newFilteredMeals = state.meals.filter(meal => {
         if (appliedFilters.glutenFree && !meal.isGlutenFree) {
           return false;
